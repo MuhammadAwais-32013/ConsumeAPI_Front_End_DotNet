@@ -1,0 +1,59 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<ConsumeAPI_Front_End.Controllers.User>
+<div class="container">
+    <h1>Users</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Website</th>
+                <th>Company</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <div>
+                            <h3>Address:</h3>
+                            <p>Street: @user.Address.Street</p>
+                            <p>Suite: @user.Address.Suite</p>
+                            <p>City: @user.Address.City</p>
+                            <p>Zipcode: @user.Address.Zipcode</p>
+                            <div>
+                                <h4>Geo:</h4>
+                                <p>Lat: @user.Address.Geo.Lat</p>
+                                <p>Lng: @user.Address.Geo.Lng</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>@user.Phone</td>
+                    <td>@user.Website</td>
+                    <td>
+                        <div>
+                            <h3>Company</h3>
+                            <p>Name: @user.Company.Name</p>
+                            <p>Slogun: @user.Company.CatchPhrase</p>
+                            <p>Bussiness In: @user.Company.BusinessIn</p>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
